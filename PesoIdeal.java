@@ -31,30 +31,20 @@ public class PesoIdeal {
 
 		escogerActividad = determinarEscogenciaDeActividad(actividad);
 
-		System.out.println();
-		System.out.println("Su nombre es: " + nombre);
-		System.out.println("Su indice corporal es: " + imc);
-
 		if(genero == 'm' || genero == 'M')
 		{
 			pesoIdealHombre = obtenerPesoIdealHombre(pesoGrosso);
 			caloriasHombre = obtenerCaloriasHombre(pesoIdealHombre, altura, edad, escogerActividad);
+			obtenerInformacionHombre(nombre, imc, pesoIdealHombre, grasaCorporalHombre, caloriasHombre, clasifPeso);
 			hombre = 1;
-			System.out.println("Su peso ideal es: " + pesoIdealHombre + " kg");
-			System.out.println("Su grasa corporal es de: " + grasaCorporalHombre);
-			System.out.println("Las calorias que debe consumir son: " + caloriasHombre);
 		}
 		else if(genero == 'f' || genero == 'F')
 		{
 			pesoIdealMujer = obtenerPesoIdealMujer(pesoGrosso);
 			caloriasMujer = obtenerCaloriasMujer(pesoIdealMujer, altura, edad, escogerActividad);
+			obtenerInformacionMujer(nombre, imc, pesoIdealMujer, grasaCorporalMujer, caloriasMujer, clasifPeso);
 			mujer = 0;
-			System.out.println("Su peso ideal es: " + pesoIdealMujer + " kg");
-			System.out.println("Su grasa corporal es de: " + grasaCorporalMujer);
-			System.out.println("Las calorias que debe consumir son: " + caloriasMujer);
 		}
-
-		System.out.println("Su clasificacion es: " + clasifPeso);
 	}
 
 	static String obtenerNombre()
@@ -256,5 +246,27 @@ public class PesoIdeal {
 		resultado = (655 + (9.6 * ppesoIdealMujer)) + (1.8 * paltura) - (4.7 * pedad) * pescogerActividad;
 
 		return resultado;
+	}
+
+	static void obtenerInformacionHombre(String pnombre, double pimc, double ppesoIdealHombre, double pgrasaCorporalHombre, double pcaloriasHombre, String pclasifPeso)
+	{
+		System.out.println();
+		System.out.println("Su nombre es: " + pnombre);
+		System.out.println("Su indice corporal es: " + pimc);
+		System.out.println("Su peso ideal es: " + ppesoIdealHombre + " kg");
+		System.out.println("Su grasa corporal es de: " + pgrasaCorporalHombre);
+		System.out.println("Las calorias que debe consumir son: " + pcaloriasHombre);
+		System.out.println("Su clasificacion es: " + pclasifPeso);
+	}
+
+	static void obtenerInformacionMujer(String pnombre, double pimc, double ppesoIdealMujer, double pgrasaCorporalMujer, double pcaloriasMujer, String pclasifPeso)
+	{
+		System.out.println();
+		System.out.println("Su nombre es: " + pnombre);
+		System.out.println("Su indice corporal es: " + pimc);
+		System.out.println("Su peso ideal es: " + ppesoIdealMujer + " kg");
+		System.out.println("Su grasa corporal es de: " + pgrasaCorporalMujer);
+		System.out.println("Las calorias que debe consumir son: " + pcaloriasMujer);
+		System.out.println("Su clasificacion es: " + pclasifPeso);
 	}
 }
